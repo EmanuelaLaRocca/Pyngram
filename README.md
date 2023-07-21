@@ -52,6 +52,21 @@ Nel modulo post.py è presente la classe Post che contiene text e user come attr
 Nel modulo user.py è presente la classe User che contiene name, surname, password, city, age, profile_privacy, is_premium come attributi e alcuni metodi relativi a questa classe: sign_in, modifca_pricacy, mostra_notifiche, invia_richieste_amicizia, invia_messaggi, passaggio_premium. 
   
 Inoltre, è stato inserire un utente di default “GiuRos” per permettere di visualizzare le interazioni con il current_user. 
+
+
+
+ROADMAP 
+  
+Potremmo aggiungere: 
+  
+- modifiche successive dei post 
+  
+- suggerimento amicizie 
+  
+- implementazione database csv esterno che contiene tutte le info (salvando le informazioni relative agli utenti iscritti, ai loro post e alle interazioni con gli altri utenti). 
+  
+  
+
   
   
   
