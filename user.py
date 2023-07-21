@@ -25,6 +25,7 @@ class User:
         self.notice=[]
         self.homepage = []
         self.inbox= []
+        self.dashboard = []
 
     # creo un metodo di classe per modificare l' attributo di classe: all_user
     @classmethod  # metodo di classe

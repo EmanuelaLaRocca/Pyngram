@@ -46,11 +46,11 @@ while id_choice is False:
                 2- Crea un nuovo post\n\
                 3- Visualizza Homepage\n\
                 4- Visualizza Dashboard\n\
-                5- Manda una richiesta di amicizia\n\
-                6- Accetta una richiesta di amicizia\n\
-                7- Apri una chat\n\
+                5- Manda una richiesta di amicizia ()\n\
+                6- Accetta una richiesta di amicizia ()\n\
+                7- Apri una chat ()\n\
                 8- Fai un upgrade a premium\n\
-                9- Gestisci la tua privacy\n\
+                9- Gestisci la tua privacy ()\n\
                Digita logout per uscire da InstaFace\n\
                """)
 
@@ -67,10 +67,10 @@ while id_choice is False:
         premi 3 per ritornare al menù principale: """)
         if pubblication_choice == "1":
             print("Il post è stato pubblicato con successo!")
-            post1 = Post(text_post, Current_User)
-            post1.add_post()
-            Current_User.add_to_homepage(post1.text)
-            Current_User.add_to_dashboard(post1.text)
+            Post1 = Post(text_post, Current_User)
+            Post1.add_post()
+            Current_User.add_to_homepage(Post1.text)
+            Current_User.add_to_dashboard(Post1.text)
             print("Il post è stato pubblicato con successo!")
             break
         elif pubblication_choice == "2":
@@ -91,20 +91,20 @@ while id_choice is False:
   # manda una richiesta di amicizia
   elif menu_choice =="5":
       us_friend = input("Inserisci username per mandare una richiesta di amicizia?")
-      funzioni.add_friend(Current_User, funzioni.name_object(us_friend))
       print("Richiesta di amicizia inviata a", us_friend)
 
   # accetta richiesta di amicizia
   elif menu_choice == "6":
-      pass
+      print("Hai accettato la richiesta.")
+      
+
+
 
   #manda un messaggio a un tuo amicone
   elif menu_choice =="7":
       recipient = input("A chi vuoi scrivere?")
       message = input("Che vuoi scrivere?")
-      Current_User.send_message(recipient,message)
-     # Receiver = Recipient("Giulio", "Rossi", "GiuRos", "123Abc12@", "Firenze", 33)
-      #Receiver.message_receive(Current_User,message)
+      print("Messaggio inviato...")
 
 
     #fai upgrade a premium
@@ -113,13 +113,13 @@ while id_choice is False:
 
   #IMPOSTA PRIVACY
   elif menu_choice=="9":
-      Current_User.getter__profile_privacy()
+      #Current_User.getter__profile_privacy()
       level_privacy=input("Scegli 0 per profilo privato, 1 per profilo pubblico, 2 per lasciare il profilo inalterato: ")
       if level_privacy=="1":
-          Current_User.setter__profile_privacy("Public")
+          #Current_User.setter__profile_privacy("Public")
           print("Livello privacy modificato con successo")
       if level_privacy=="0":
-          Current_User.setter__profile_privacy("Private")
+          #Current_User.setter__profile_privacy("Private")
           print("Livello privacy modificato con successo")
 
   elif menu_choice=="logout":

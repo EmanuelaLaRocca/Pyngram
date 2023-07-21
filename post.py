@@ -14,7 +14,7 @@ class Post:
     # metodo per pubblicare un post
     def add_post(self):
         global all_posts
-        all_posts.append(self)
-        C_user =funzioni.name_object(self.user)
-        if User.getter__profile_privacy(C_user)=="public":
-            all_post_tot.append(self)
+        all_posts.append(self.text)
+      #  C_user =funzioni.name_object(self.user)
+       # if User.getter__profile_privacy(C_user)=="public":
+        #    all_post_tot.append(self)
