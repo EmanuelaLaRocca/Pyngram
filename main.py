@@ -3,6 +3,7 @@ import funzioni
 from post import Post
 import post
 import ctypes
+import Recipient 
 
 entry=False
 
@@ -65,6 +66,7 @@ while id_choice is False:
         2 per riscrivere il post,\n
         premi 3 per ritornare al menù principale: """)
         if pubblication_choice == "1":
+            print("Il post è stato pubblicato con successo!")
             post1 = Post(text_post, Current_User)
             post1.add_post()
             Current_User.add_to_homepage(post1.text)
@@ -86,8 +88,6 @@ while id_choice is False:
    #VISUALIZZA DASHBOARD
   elif menu_choice=="4":
      print(post.all_post_tot)
-    
-
   # manda una richiesta di amicizia
   elif menu_choice =="5":
       us_friend = input("Inserisci username per mandare una richiesta di amicizia?")
@@ -102,9 +102,10 @@ while id_choice is False:
   elif menu_choice =="7":
       recipient = input("A chi vuoi scrivere?")
       message = input("Che vuoi scrivere?")
-      recipient_user = User.all_user.get(recipient)
-      casted_object = funzioni.name_object(recipient)
-      send_message(casted_object,message)
+      Current_User.send_message(recipient,message)
+     # Receiver = Recipient("Giulio", "Rossi", "GiuRos", "123Abc12@", "Firenze", 33)
+      #Receiver.message_receive(Current_User,message)
+
 
     #fai upgrade a premium
   elif menu_choice =="8":

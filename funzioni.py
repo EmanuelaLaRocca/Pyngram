@@ -1,7 +1,10 @@
 #funzioni
 from user import User
+import user
 import post
 import ctypes
+all_username_pointers = {}
+all_username_pointers["GiuRos"] = user.giulio_pointer
 
 
 def welcome_message():
@@ -146,7 +149,7 @@ def sign_in():
     return True
 
 def name_object(username):
-    pointer = User.all_username_pointers[username]
+    pointer =all_username_pointers[username]
     casted_object = ctypes.cast(pointer,ctypes.py_object).value
     return casted_object
 

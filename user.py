@@ -1,9 +1,11 @@
 from datetime import datetime
 import ctypes
+#import Recipient
+
 
 class User:
+    
     all_user = {}
-    all_username_pointers = {}
 
     # Creo una variabile di classe dizionario che associa allo username la relativa password
 
@@ -11,11 +13,11 @@ class User:
     def __init__(self, name, surname, username, password, city, age, profile_privacy="public",is_premium=False):  # profile_privacy, home
         self.name = name
         self.surname = surname
+        self.username = username
         self.age = age
         self.city = city
-        self.username = username
         self.password = password
-        self.__profile_privacy = profile_privacy
+        self.profile_privacy = profile_privacy
         self.friend_list = []
         self.friend_list_request = []
         self.inbox = []
@@ -72,20 +74,21 @@ class User:
     def add_friend_request(self, sender):
         self.friend_list_request.append(sender)
 
-    def send_message(self, Recipient, message):
-        if Recipient:
-            self.inbox.append({
-                'sender':self.username,
-                'date':datetime.now().strftime("%Y-%m-%d-%H:%M:%S"),
-                'content': message})
-            Recipient.inbox.append({
-                'sender': self.username,
-                'date': datetime.now().strftime("%Y-%m-%d-%H:%M:%S"),
-                'content': message})
+    def send_message(self, recipient, message):
+        print("nnnnnnnnnnnn")
+      #  self.inbox.append({
+       #     'sender':self.username,\
+            #'date':datetime.now().strftime("%Y-%m-%d-%H:%M:%S"),
+        #    'content': message})
+        #Recipient.inbox.append({
+         #   'sender': self.username,
+          #  'date': datetime.now().strftime("%Y-%m-%d-%H:%M:%S"),
+           # 'content': message})
 
-            print(f"Messagio inviato a {Recipient}")
-        else:
-            print("Utente destinatario non trovato.")
+        #print(f"Messagio inviato a {recipient}")
+       # print(self.inbox)
+       # else:
+        #    print("Utente destinatario non trovato.")
 
     def upgrade_to_premium(self):
         while True:
@@ -119,5 +122,4 @@ Default= User("Giulio", "Rossi", "GiuRos", "123Abc12@", "Firenze", 33)
 User.all_user["GiuRos"]= "123Abc12@"
 giulio_pointer = id(Default)
 casted_object = ctypes.cast(giulio_pointer,ctypes.py_object).value
-User.all_username_pointers["GiuRos"] = giulio_pointer
-Default.add_friend_request("Gabriele97")
+#Default.add_friend_request("Gabriele97")
